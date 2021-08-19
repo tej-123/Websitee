@@ -1,0 +1,126 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+<script type="text/javascript">
+     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+ // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+clevertap.account.push({"id": "W67-774-7Z5Z"});
+clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agrees to share their IP data
+ (function () {
+		 var wzrk = document.createElement('script');
+		 wzrk.type = 'text/javascript';
+		 wzrk.async = true;
+		 wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
+		 var s = document.getElementsByTagName('script')[0];
+		 s.parentNode.insertBefore(wzrk, s);
+  })();
+  
+  // with the exception of one of Identity, Email, or FBID
+// each of the following fields is optional
+
+clevertap.onUserLogin.push({
+ "Site": {
+   "Name": "Tej",            // String
+   "Identity": 61026032,              // String or number
+   "Email": "tejaswini@clevertap.com",         // Email address of the user
+   "Gender": "F",
+   "MSG-email": true,                // Enable email notifications
+   "MSG-push": true					// Enable push notifications
+ }
+
+})
+</script>
+<div class="btn">CLOSE</div>
+<script>
+var btn = document.querySelector('.btn');
+var wrapper = window.parent.document.getElementById('wizParDiv2');
+btn.addEventListener('click', closePopUp);
+function closePopUp() { wrapper.remove(); }
+
+clevertap.notificationCallback = function(msg){
+      //raise the notification viewed and clicked events in the callback
+      clevertap.raiseNotificationViewed();
+      console.log(JSON.stringify(msg));//your custom rendering implementation here
+      var $button = jQuery("<button></button>");//element on whose click you want to raise the notification clicked event
+      $button.click(function(){
+         clevertap.raiseNotificationClicked();
+      });
+};
+{
+    "msgContent": {
+        "title": "hello title!",
+        "description": “hello message!"
+    },
+    "msgId": "1439796272_20160219",
+    "kv": {
+        "key1":"value1",
+        "key2":"value2"
+    }
+}
+</script>
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Login Page </title>
+<style> 
+Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+button { 
+        background-color: #4CAF50; 
+        width: 100%;
+        color: orange; 
+        padding: 15px; 
+        margin: 10px 0px; 
+        border: none; 
+        cursor: pointer; 
+         } 
+ form { 
+        border: 3px solid #f1f1f1; 
+    } 
+ input[type=text], input[type=password] { 
+        width: 100%; 
+        margin: 8px 0;
+        padding: 12px 20px; 
+        display: inline-block; 
+        border: 2px solid green; 
+        box-sizing: border-box; 
+    }
+ button:hover { 
+        opacity: 0.7; 
+    } 
+  .cancelbtn { 
+        width: auto; 
+        padding: 10px 18px;
+        margin: 10px 5px;
+    } 
+      
+   
+ .container { 
+        padding: 25px; 
+        background-color: lightblue;
+    } 
+</style> 
+</head>  
+<body>  
+    <center> <h1> Login Form </h1> </center>
+    <form>
+        <div class="container"> 
+            <label>Username : </label> 
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <label>Password : </label> 
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <button type="submit">Login</button>
+            <button type="submit">Test</button>  
+            <input type="checkbox" checked="checked"> Remember me 
+            <button type="button" class="cancelbtn"> Cancel</button> 
+            Forgot <a href="#"> password? </a> 
+        </div> 
+		
+    </form>   
+</body>   
+</html>
